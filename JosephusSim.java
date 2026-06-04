@@ -32,6 +32,7 @@ private PersonNode current; // helps track position
       } catch (FileNotFoundException e) {
          System.out.println("Something went wrong with " + fileName);
       }
+      prev.next = first;
    }
    
    // optional helper method for constructing the circle
