@@ -12,7 +12,21 @@ private PersonNode current; // helps track position
          Scanner file = new Scanner(new File(fileName));
          
          // make the ring circular by attaching last node's next to front
-         
+         PersonNode prev = null;
+
+      while (file.hasNextLine()) {
+       String name = file.nextLine();
+       PersonNode newNode = new PersonNode(name);
+
+       if (first == null) {
+        first = newNode;
+       } else {
+        prev.next = newNode;
+       }
+
+       prev = newNode;
+       size++;
+   }
          // generate, print, and save the random elimination count
 
       } catch (FileNotFoundException e) {
