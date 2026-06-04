@@ -33,6 +33,10 @@ private PersonNode current; // helps track position
          System.out.println("Something went wrong with " + fileName);
       }
       prev.next = first;
+      current = first;
+      Random rand = new Random();
+      eliminationCount = rand.nextInt(size / 2) + 1;
+      System.out.println("=== Elimination count is " + eliminationCount + " ===");
    }
    
    // optional helper method for constructing the circle
