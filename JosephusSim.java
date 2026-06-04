@@ -2,10 +2,10 @@ import java.util.*;
 import java.io.*;
 
 public class JosephusSim {
-   private PersonNode front;      // a PersonNode pointer that tracks first node in the list
-   private int size;              // the number of people in the circle
-   private int eliminationCount;  // the number to count to for elimination       
-
+private PersonNode first;  // start of circle
+private int size;          // number of people
+private int eliminationCount;
+private PersonNode current; // helps track position
    public JosephusSim(String fileName) {
       try {
          // load names from the file in order, generating a singly linked list of PersonNodes
