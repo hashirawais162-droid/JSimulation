@@ -45,7 +45,30 @@ private PersonNode current; // helps track position
    
    public void eliminate() {
       // count to the elimination count
-      
+    if (size <= 1) return;
+
+    // move to node BEFORE the one to delete
+    for (int i = 1; i < eliminationCount - 1; i++) {
+        current = current.next;
+    }
+
+    PersonNode toDelete = current.next;
+
+    System.out.println(toDelete.name + " eliminated!");
+
+    // remove node
+    current.next = toDelete.next;
+
+    // update first if needed
+    if (toDelete == first) {
+        first = toDelete.next;
+    }
+
+    // move current forward
+    current = current.next;
+
+    size--;
+}
       // print who will be eliminated
       
       // eliminate the person and update "front" of the circle and size
