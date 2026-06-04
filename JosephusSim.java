@@ -82,10 +82,28 @@ private PersonNode current; // helps track position
    
    public String toString() {
       // if there's only one person left, print them as the last survivor
-      
-      // if many, print survivors (watch out for infinite loop since list is circular)
+    if (size == 1) {
+        return first.name + " is the last survivor!";
+    }
 
-      return "";
-   }
+    String result = "Remaining survivors: ";
+
+    PersonNode temp = first;
+    int count = 1;
+
+    do {
+        result += count + "-" + temp.name;
+        temp = temp.next;
+        count++;
+
+        if (temp != first) {
+            result += ", ";
+        }
+
+    } while (temp != first);
+
+    return result;
+}
+      // if many, print survivors (watch out for infinite loop since list is circular)
 
 }
